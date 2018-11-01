@@ -1,0 +1,1 @@
+It is currently only applicable to iOS devices with iOS version 11 or later.
