@@ -38,7 +38,7 @@ yarn-error.log
 
 # vscode 
 #
-vscode
+.vscode
 
 # BUCK
 buck-out/
