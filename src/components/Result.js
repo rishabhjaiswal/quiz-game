@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, StyleSheet, View, Image } from "react-native";
+import { Text, StyleSheet, View, Image, TouchableOpacity } from "react-native";
 import {
   Container,
   Header,
@@ -13,8 +13,10 @@ import {
 } from "native-base";
 import { Grid, Row, Col } from "react-native-easy-grid";
 import { AnimatedCircularProgress } from "react-native-circular-progress";
+import { playAgain } from "../actions/gameActions";
+import { connect } from "react-redux";
 
-export default class Result extends Component {
+class Result extends Component {
   render() {
     return (
       <Container>
@@ -123,6 +125,20 @@ export default class Result extends Component {
               >
                 Time Taken : {this.props.gameTime / 1000} seconds
               </Text>
+              <TouchableOpacity onPress={() => this.props.playAgain()}>
+                <Text
+                  style={{
+                    fontSize: 15,
+                    marginTop: 10,
+                    fontSize: 20,
+                    fontWeight: "bold",
+                    alignSelf: "center",
+                    color: "blue"
+                  }}
+                >
+                  Play Again
+                </Text>
+              </TouchableOpacity>
             </Row>
           </Grid>
         </Content>
@@ -132,3 +148,14 @@ export default class Result extends Component {
 }
 
 const styles = StyleSheet.create({});
+
+const mapStateToProps = (state, props) => ({});
+
+const mapActionToProps = dispatch => ({
+  playAgain: () => playAgain()(dispatch)
+});
+
+export default connect(
+  mapStateToProps,
+  mapActionToProps
+)(Result);

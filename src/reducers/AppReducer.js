@@ -1,8 +1,9 @@
 import { combineReducers } from "redux";
-import { gameReducer } from "./gameReducer";
+import { gameReducer, playAgainReducer } from "./gameReducer";
 
 const appReducer = combineReducers({
-  gameReducer
+  gameReducer,
+  playAgainReducer
 });
 
 export default appReducer;
