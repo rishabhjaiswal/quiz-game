@@ -50,10 +50,11 @@ export default class QuestionContainer extends Component {
           flex: 1,
           marginTop: 20,
           alignSelf: "center",
-          padding: 10
+          padding: 10,
+          flexWrap: "wrap"
         }}
       >
-        <CardItem padder>
+        <CardItem padder style={{ flex: 1, flexWrap: "wrap" }}>
           <Left>
             <Thumbnail source={require("../assets/logo.jpg")} />
             <Body>
@@ -62,12 +63,20 @@ export default class QuestionContainer extends Component {
             </Body>
           </Left>
         </CardItem>
-        <CardItem cardBody padder style={{ flex: 1, alignItems: "stretch" }}>
-          <Icon
+        <CardItem
+          cardBody
+          padder
+          style={{
+            flex: 1,
+            flexWrap: "wrap",
+            flexDirection: "row"
+          }}
+        >
+          {/* <Icon
             name="question"
-            type="FontAwesome"
+            type="FontAwesome"  
             style={{ color: "blue", marginLeft: 5 }}
-          />
+          /> */}
           <Text>{item.question}</Text>
         </CardItem>
         <CardItem padder>
@@ -221,7 +230,7 @@ export default class QuestionContainer extends Component {
           <View
             style={{
               flex: 1,
-              marginTop: 35,
+              marginTop: 50,
               padding: 10
             }}
           >
