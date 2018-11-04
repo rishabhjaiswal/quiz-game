@@ -1,32 +1,28 @@
-import { getGame } from '../utils/server';
+import { getGame } from "../utils/server";
 
 export const GET_GAME_REQUEST = "GET_GAME_REQUEST";
 export const GET_GAME_SUCCESS = "GET_GAME_SUCCESS";
 export const GET_GAME_FAILURE = "GET_GAME_FAILURE";
 
 export function getQuiz() {
-  console.log("in actions.......")
-  return (dispatch) => {
+  return dispatch => {
     dispatch({
       type: GET_GAME_REQUEST,
       payload: {}
-    })
-    getGame
-      (
+    });
+    getGame(
       data => {
-        console.log("inn scuccess .......",data)
         dispatch({
           type: GET_GAME_SUCCESS,
           payload: data
         });
       },
       error => {
-        console.log("inn errprrr........", error)
         dispatch({
           type: GET_GAME_FAILURE,
           payload: {}
         });
       }
-      );
+    );
   };
 }

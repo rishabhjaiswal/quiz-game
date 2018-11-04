@@ -1,5 +1,7 @@
-import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+import React, { Component } from "react";
+import { ActivityIndicator, StyleSheet } from "react-native";
+import QuestionContainer from "../container/questionContainer";
+import { Actions } from "react-native-router-flux";
 
 export default class GameScreen extends Component {
   constructor(props) {
@@ -7,17 +9,28 @@ export default class GameScreen extends Component {
   }
 
   componentDidMount() {
-    console.log("props in gamescreen", this.props)
     this.props.getGame();
   }
-  
 
   render() {
-    console.log("in renderrrr......", this.props.gameRequest)
-    return (
-      <View>
-        <Text> welcome to gamescreen </Text>
-      </View>
-    )
+    return !this.props.gameRequest.gameReducer.isFetching ? (
+      <QuestionContainer
+        data={this.props.gameRequest.gameReducer.game.results}
+        startTime={this.props.startTime}
+      />
+    ) : (
+      <ActivityIndicator
+        size="large"
+        color="#0000ff"
+        style={styles.activityIndicator}
+      />
+    );
   }
 }
+
+const styles = StyleSheet.create({
+  activityIndicator: {
+    flex: 1,
+    justifyContent: "center"
+  }
+});

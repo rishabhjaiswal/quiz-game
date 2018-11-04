@@ -1,13 +1,11 @@
-import axios from 'axios';
+import axios from "axios";
 
 export function getGame(success, err) {
-  console.log("in serverjs...........")
   axios({
     method: "GET",
-    url: "https://opentdb.com/api.php?amount=10",
+    url: "https://opentdb.com/api.php?amount=10&type=multiple",
     headers: { "content-type": "application/json" }
   })
-  .then(success)
-  .catch(err)
-
+    .then(success)
+    .catch(err);
 }

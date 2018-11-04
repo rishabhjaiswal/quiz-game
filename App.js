@@ -8,14 +8,15 @@
 
 import React, {Component} from 'react';
 import { SafeAreaView, StyleSheet } from 'react-native'
-import {createStore} from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import AppNavigator from './src/AppNavigator';
-import AppReducer from './src/reducers/AppReducer';
+import appReducer from './src/reducers/appReducer';
+import thunk from 'redux-thunk';
 
 export default class App extends Component {
   render() {
-    const store = createStore(AppReducer);
+    const store = createStore(appReducer, applyMiddleware(thunk));
     return (
     <Provider store={store}>
       <SafeAreaView style={styles.safeAreaView}>  
