@@ -18,18 +18,23 @@ export default class Result extends Component {
   render() {
     return (
       <Container>
-        <Header>
+        <Header style={{ padding: 15 }}>
           <Left>
             <Button transparent>
               <Icon name="menu" />
             </Button>
           </Left>
           <Body>
-            <Title>RESULT</Title>
+            <Title style={{ fontSize: 20 }}>RESULT</Title>
           </Body>
           <Right />
         </Header>
-        <Content contentContainerStyle={{ flex: 1, alignItems: "center" }}>
+        <Content
+          contentContainerStyle={{
+            flex: 1,
+            alignItems: "center"
+          }}
+        >
           <Grid>
             <Row
               size={34}
@@ -37,31 +42,48 @@ export default class Result extends Component {
             >
               <View
                 style={{
-                  marginTop: 50,
-                  height: 125,
-                  width: 125,
-                  borderRadius: 66,
-                  borderWidth: 4,
-                  borderColor: "skyBlue",
+                  marginTop: 100,
+                  height: 150,
+                  width: 150,
+                  justifyContent: "center",
                   alignItems: "center",
-                  justifyContent: "center"
+                  alignSelf: "center"
                 }}
               >
                 <AnimatedCircularProgress
-                  size={100}
-                  width={3}
-                  fill={this.props.results}
+                  size={150}
+                  width={10}
+                  backgroundWidth={10}
+                  fill={this.props.results * 36}
+                  lineCap="round"
                   tintColor="#00e0ff"
                   onAnimationComplete={() => console.log("onAnimationComplete")}
                   ref="circularProgress"
-                  backgroundColor="blue"
                   arcSweepAngle={36 * this.props.results}
                 >
-                  {fill => <Text style={styles.points}>{fill}</Text>}
+                  {() => (
+                    <Text
+                      style={{
+                        fontSize: 30,
+                        marginTop: 35,
+                        fontWeight: "bold",
+                        alignSelf: "center"
+                      }}
+                    >
+                      {this.props.results}
+                    </Text>
+                  )}
                 </AnimatedCircularProgress>
               </View>
               <View>
-                <Text style={{ fontSize: 15, marginTop: 10 }}>
+                <Text
+                  style={{
+                    fontSize: 20,
+                    marginTop: 35,
+                    fontWeight: "bold",
+                    alignSelf: "center"
+                  }}
+                >
                   TEST COMPLETED
                 </Text>
               </View>
@@ -69,20 +91,36 @@ export default class Result extends Component {
             <Row
               size={66}
               style={{
-                justifyContent: "center",
+                marginTop: 100,
                 flexDirection: "column",
                 alignContent: "center"
               }}
             >
               <Image
                 source={require("../assets/images.jpeg")}
-                style={{ height: 150, width: 150 }}
+                style={{ height: 150, width: 150, alignSelf: "center" }}
               />
-              <Text style={{ fontSize: 15, marginTop: 10 }}>
-                Markd Scored : {this.props.results}
+              <Text
+                style={{
+                  fontSize: 15,
+                  marginTop: 20,
+                  fontSize: 20,
+                  fontWeight: "bold",
+                  alignSelf: "center"
+                }}
+              >
+                Markd Scored :{this.props.results}
                 /10
               </Text>
-              <Text style={{ fontSize: 15, marginTop: 10 }}>
+              <Text
+                style={{
+                  fontSize: 15,
+                  marginTop: 10,
+                  fontSize: 20,
+                  fontWeight: "bold",
+                  alignSelf: "center"
+                }}
+              >
                 Time Taken : {this.props.gameTime / 1000} seconds
               </Text>
             </Row>

@@ -15,8 +15,9 @@ const styles = StyleSheet.create({
   imageBackground: {
     flex: 1,
     backgroundColor: "white",
-    resizeMode: "cover",
-    alignContent: "stretch"
+    // resizeMode: "cover",
+    alignContent: "stretch",
+    elevation: 2
   },
   button: {
     borderRadius: 4,
@@ -52,6 +53,7 @@ export default class HomeScreen extends Component {
           <ImageBackground
             source={require("../assets/quiz.jpg")}
             style={styles.imageBackground}
+            imageStyle={{ resizeMode: "contain" }}
           >
             <TouchableOpacity onPress={this.onPress} style={styles.button}>
               <Text style={styles.quizText}>Start Quiz</Text>

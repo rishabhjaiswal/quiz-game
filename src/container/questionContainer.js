@@ -49,7 +49,8 @@ export default class QuestionContainer extends Component {
           elevation: 3,
           flex: 1,
           marginTop: 20,
-          alignSelf: "center"
+          alignSelf: "center",
+          padding: 10
         }}
       >
         <CardItem padder>
@@ -61,7 +62,7 @@ export default class QuestionContainer extends Component {
             </Body>
           </Left>
         </CardItem>
-        <CardItem cardBody padder>
+        <CardItem cardBody padder style={{ flex: 1, alignItems: "stretch" }}>
           <Icon
             name="question"
             type="FontAwesome"
@@ -124,9 +125,6 @@ export default class QuestionContainer extends Component {
   };
 
   handleSubmit = correctAnswer => {
-    this.setState((state, props) => ({
-      questionNumber: state.questionNumber + 1
-    }));
     if (this.state.selectedAnswer == correctAnswer) {
       this.setState((state, props) => ({
         points: state.points + 1
@@ -136,12 +134,15 @@ export default class QuestionContainer extends Component {
     if (this.state.questionNumber >= 10) {
       let endTime = new Date();
 
-      let timeDiff = Math.abs(
+      let timeDiff = Math.ceil(
         endTime.getTime() - this.props.startTime.getTime()
       );
       console.log("date.................", timeDiff);
       Actions.result({ results: this.state.points, gameTime: timeDiff });
     }
+    this.setState((state, props) => ({
+      questionNumber: state.questionNumber + 1
+    }));
 
     this.setState(
       {
@@ -220,7 +221,8 @@ export default class QuestionContainer extends Component {
           <View
             style={{
               flex: 1,
-              marginTop: 15
+              marginTop: 35,
+              padding: 10
             }}
           >
             <DeckSwiper
@@ -234,7 +236,7 @@ export default class QuestionContainer extends Component {
           <View
             style={{
               flex: 1,
-              marginTop: 15,
+              marginTop: 75,
               alignItems: "center",
               justifyContent: "center",
               zIndex: -1
