@@ -2,6 +2,8 @@ Information:
 It is currently only applicable to iOS devices with iOS version 11 or later.
 X-Code Version: 10
 ios-device: i-phone X or Xs
+android-device: Google Pixel XL
+screen size 5.5 inches
 
 React Native Quiz-App
 A sample app using react native for iOS & Android
@@ -11,7 +13,7 @@ Step 1: clone my repo & cd into project
 
 Step 2: install node modules
 
-npm install
+yarn install
 Before run android build, setup Android Studio
 
 Step 3: If Android
