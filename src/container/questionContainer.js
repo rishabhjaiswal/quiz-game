@@ -1,5 +1,5 @@
 import React, { Component, PureComponent } from "react";
-import { Alert, Dimensions, StyleSheet, View } from "react-native";
+import { Alert, Dimensions, StyleSheet, View, Platform } from "react-native";
 import {
   Container,
   Header,
@@ -48,7 +48,7 @@ export default class QuestionContainer extends Component {
         style={{
           elevation: 3,
           flex: 1,
-          marginTop: 20,
+          marginTop: Platform.OS === "ios" ? 20 : 0,
           alignSelf: "center",
           padding: 10,
           flexWrap: "wrap"
@@ -230,7 +230,7 @@ export default class QuestionContainer extends Component {
           <View
             style={{
               flex: 1,
-              marginTop: 50,
+              marginTop: Platform.OS === "ios" ? 50 : 0,
               padding: 10
             }}
           >
@@ -245,7 +245,7 @@ export default class QuestionContainer extends Component {
           <View
             style={{
               flex: 1,
-              marginTop: 75,
+              marginTop: 120,
               alignItems: "center",
               justifyContent: "center",
               zIndex: -1

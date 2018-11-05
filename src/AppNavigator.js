@@ -4,7 +4,7 @@ import { Router, Scene } from "react-native-router-flux";
 import HomeScreen from "./components/HomeScreen";
 import GameContainer from "./container/gameContainer";
 import QuestionContainer from "./container/questionContainer";
-import Result from "./components/Result";
+import Result from "./container/Result";
 export default class AppNavigator extends Component {
   render() {
     return (
